@@ -1,0 +1,192 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Messaging API
+  description: 'Messaging API'
+  contact: {}
+host: localhost:3000
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /messages:
+    post:
+      description: Endpoint for create new message
+      summary: New message
+      tags:
+      - Misc
+      operationId: MessagesPost
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/NewMessageRequest'
+      responses:
+        201:
+          description: 'Message Sent'
+          schema:
+            $ref: '#/definitions/NewMessageSuccessResponse'
+          examples:
+            application/json:
+              code: 201
+              message: Message Sent
+
+  /messages/{sender_id}:
+    get:
+      description: ' API for collect message that has been sent out'
+      summary: Get message that has been sent out by sender_id
+      tags:
+      - Misc
+      operationId: MessageGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: sender_id
+        in: path
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/GetHistoryMessageSuccess'
+          examples:
+            application/json:
+              code: 200
+              message: List messages of id {sender_id}
+              data:
+              - id: 1
+                sender_id: 1
+                recepient_id: 10
+                msg_text: hello
+                created_at: "2019-05-20 06:21:33"
+                updated_at: "2019-05-20 06:21:33"
+              
+              - id: 2
+                sender_id: 22
+                recepient_id: 3
+                msg_text: Hehehe
+                created_at: "2019-05-20 06:21:33"
+                updated_at: "2019-05-20 06:21:33"
+
+definitions:
+  NewMessageRequest:
+    title: NewMessageRequest
+    example:
+      sender_id: 3
+      recepient_id: 32
+      msg_text: Test
+    type: object
+    properties:
+      sender_id:
+        type: integer
+        format: int32
+      recepient_id:
+        type: integer
+        format: int32
+      msg_text:
+        type: string
+    required:
+    - sender_id
+    - recipient_id
+    - msg_text
+  NewMessageSuccessResponse:
+    title: NewMessageSuccessResponse
+    example:
+      code: 200
+      message: Message Sent
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+    required:
+    - code
+    - message
+  GetHistoryMessageSuccess:
+    title: GetMessageInboxSuccess
+    example:
+      code: 200
+      message: Success
+      data:
+      - id: 1
+        sender_id: 1
+        recepient_id: 10
+        msg_text: hello
+        created_at: "2019-05-20 06:21:33"
+        updated_at: "2019-05-20 06:21:33"
+      
+      - id: 2
+        sender_id: 22
+        recepient_id: 3
+        msg_text: Hehehe
+        created_at: "2019-05-20 06:21:33"
+        updated_at: "2019-05-20 06:21:33"
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/messageData'
+    required:
+    - code
+    - message
+    - data
+  messageData:
+    title: messageData
+    type: object
+    properties:
+      id:
+        example: 2
+        type: integer
+        format: int32
+      sender_id:
+        example: 1
+        type: integer
+        format: int32
+      recepient_id:
+        example: 1
+        type: integer
+        format: int32
+      msg_text:
+        example: blablabla
+        type: string
+      created_at:
+        example: "2019-05-20 06:21:33"
+        type: string
+      update_at:
+        example: "2019-05-20 06:21:45"
+        type: string
+    required:
+    - id
+    - sender_id
+    - recepient_id
+    - msg_text
+    - created_at
+    - updated_at
+tags:
+- name: Misc
+  description: ''

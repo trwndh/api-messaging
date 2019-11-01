@@ -55,7 +55,7 @@ router.post('/',(req,res)=>{
                 message:err
             })
         }else{
-            //get lates message detail
+            //get latest message detail
             pool.execute("SELECT * FROM messages WHERE id = ?",[results.insertId],function(err,resLast){
                 // broadcast message to client in JSON format
                 wsClient.send(JSON.stringify(resLast))

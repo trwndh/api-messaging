@@ -16,10 +16,6 @@ var pool = mysql.createPool({
     queueLimit:0
 })
 
-
-//ws client for sending message to client
-const wsClient = new ws('ws://localhost:3333/ws')
-
 // API to get all message has been sent out 
 router.get('/:sender_id', (req,res)=>{    
     pool.execute("SELECT * FROM messages WHERE sender_id = ?",[req.params.sender_id],function(err,rows){
@@ -45,6 +41,9 @@ router.get('/:sender_id', (req,res)=>{
     })
 })
 
+
+//ws client for sending message to client
+const wsClient = new ws('ws://localhost:3333/ws')
 
 // API to create new message, insert to database and broadcast to websocket client
 router.post('/',(req,res)=>{

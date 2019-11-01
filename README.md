@@ -4,7 +4,7 @@ Simple API for create and retrieve message
 ## API endpoint
 
 1. API for sending message on ```POST /messages```
-2. API for collect message that has benn sent out on ```GET /message/:sender_id``` 
+2. API for collect message that has been sent out on ```GET /message/:sender_id``` 
 3. API to display realtime message on ```/ws``` using websocket on localhost port ```3333```
 
 API server located on ```http://localhost:3000/```
@@ -46,6 +46,8 @@ $ npm test
 ```
 
 ## Testing websocket for display realtime messages
+
+use browser (chrome/firefox) console
 ```
 var conn = new WebSocket('ws://localhost:3333/ws')
 conn.onmessage = function (e) {

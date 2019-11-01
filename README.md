@@ -33,7 +33,7 @@ use docker exec to execute test:
 then run :
 ```# npm test```
 
-## Testing websocket for display realtime messages
+## Testing websocket to display realtime messages
 
 use browser (chrome/firefox) console
 ```

@@ -26,16 +26,18 @@ $ docker-compose -f docker-mysql-compose.yml up
 
 
 ## Testing 
-test script available on ```test/messages.test.js```
+* Test script available on ```test/messages.test.js```
 
-use docker exec to execute test:
+* Use docker exec to execute test:
+
 ```docker exec -it image_name bash```
+
 then run :
 ```# npm test```
 
 ## Testing websocket to display realtime messages
 
-use browser (chrome/firefox) console
+Use browser (chrome/firefox) console
 ```
 var conn = new WebSocket('ws://localhost:3333/ws')
 conn.onmessage = function (e) {

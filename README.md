@@ -2,7 +2,7 @@
 Simple API for create and retrieve message
 
 ## Case
-1. API for sending message on ```POST /messages```,  ```{sender_id:sender_id,recipient_id:recipient_id,msg_text:msg_text}```
+1. API for sending message on ```POST /messages```
 2. API for collect message that has been sent out on ```GET /messages/:sender_id``` 
 3. API to display realtime message on ```/ws``` using websocket on localhost port ```3333```
 

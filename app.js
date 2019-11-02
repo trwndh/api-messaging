@@ -10,15 +10,9 @@ var app = express();
 // Websocket server
 var ws = require('ws')
 
-try{
-
 // create new websocket server on port 3000, endpoint ws
 wsServer = new ws.Server({port:3333, path:'/ws'})
-}catch(err){
 
-// create new websocket server on port 3000, endpoint ws for testing
-wsServer = new ws.Server({port:3334, path:'/ws'})
-}
 wsServer.on('connection',function connection(ws){
     ws.on('message',function incoming(msg){
         //broadcast incoming message to all clients

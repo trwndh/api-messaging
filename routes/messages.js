@@ -6,8 +6,8 @@ var mysql = require('mysql2')
 
 // create MySQL pool
 var pool = mysql.createPool({
-    host:'localhost',
-    port:'33061',
+    host:'mysql',
+    port:'3306',
     user:'admin',
     password:'123',
     database:'db_message',

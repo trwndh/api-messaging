@@ -16,16 +16,7 @@ services:
       - MYSQL_ROOT_PASSWORD=123
     networks: 
       - net
-  serverjs:
-    build: ./
-    command: npm start
-    networks: 
-      - net
-    ports:
-      - 3000:3000
-      - 3333:3333
-    expose:
-      - '3000'
+  
 networks: 
   net:
     driver: bridge

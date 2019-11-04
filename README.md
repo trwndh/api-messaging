@@ -15,13 +15,11 @@ API server located on ```http://localhost:3000/```
 * MySQL
 
 ## Software required for installation
-* node ```v12.13.0```
-* npm ```v6.12.0```
 * docker ```v18.09.7```
 * docker-compose ```1.12.0```
 
 ## How to run
-* Start the database server
+* Start the application & database server
 ```
 $ docker-compose -f docker-mysql-compose.yml up
 ```
@@ -38,6 +36,7 @@ $ npm start
 
 
 ## Testing 
+
 * Test script available on ```test/messages.test.js```
 
 * Then run : ```$ npm test```

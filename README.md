@@ -15,22 +15,32 @@ API server located on ```http://localhost:3000/```
 * MySQL
 
 ## Software required for installation
+* node ```v12.13.0```
+* npm ```v6.12.0```
 * docker ```v18.09.7```
 * docker-compose ```1.12.0```
 
 ## How to run
-* Start the server
+* Start the database server
 ```
 $ docker-compose -f docker-mysql-compose.yml up
+```
+
+* Install dependencies
+```
+$ npm install
+```
+
+* Run application server
+```
+$ npm start
 ```
 
 
 ## Testing 
 * Test script available on ```test/messages.test.js```
 
-* Use docker exec to execute test: ```docker exec -it image_name bash```
-
-* Then run : ```# npm test```
+* Then run : ```$ npm test```
 
 ## Testing websocket to display realtime messages
 
@@ -41,3 +51,7 @@ conn.onmessage = function (e) {
     console.log(e.data);
 };
 ```
+
+## Documentation
+
+This service documented using swagger. Go check on ```./docs/api_spec.yml```

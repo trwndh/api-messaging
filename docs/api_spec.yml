@@ -73,14 +73,14 @@ paths:
               data:
               - id: 1
                 sender_id: 1
-                recipient: 10
+                recipient_id: 10
                 msg_text: hello
                 created_at: "2019-05-20 06:21:33"
                 updated_at: "2019-05-20 06:21:33"
               
               - id: 2
                 sender_id: 22
-                recipient: 3
+                recipient_id: 3
                 msg_text: Hehehe
                 created_at: "2019-05-20 06:21:33"
                 updated_at: "2019-05-20 06:21:33"

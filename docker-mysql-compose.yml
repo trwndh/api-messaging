@@ -8,7 +8,7 @@ services:
     ports:
       - 33061:3306
     expose:
-      - '3306'
+      - '33061'
     environment:
       - MYSQL_DATABASE=db_message
       - MYSQL_USER=admin
@@ -16,7 +16,14 @@ services:
       - MYSQL_ROOT_PASSWORD=123
     networks: 
       - net
-  
+  serverjs:
+    build: ./
+    command: npm start
+    ports:
+      - 3000:3000
+      - 3333:3333
+    networks:
+      - net
 networks: 
   net:
     driver: bridge

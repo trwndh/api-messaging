@@ -24,17 +24,6 @@ API server located on ```http://localhost:3000/```
 $ docker-compose -f docker-mysql-compose.yml up
 ```
 
-* Install dependencies
-```
-$ npm install
-```
-
-* Run application server
-```
-$ npm start
-```
-
-
 ## Testing 
 
 * Test script available on ```test/messages.test.js```
